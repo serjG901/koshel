@@ -29,7 +29,7 @@ export default function StatTasks({
   return (
     <details>
       <summary>
-        <div>Статистика платежей</div>
+        Статистика платежей
         <div>
           {endDateRange - startDateRange === 0 && endDateRange
             ? ` за ${new Date(startDateRange).toLocaleDateString()}`
