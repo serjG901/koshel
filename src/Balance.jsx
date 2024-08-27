@@ -1,25 +1,43 @@
 /* eslint-disable react/prop-types */
-export default function Balance({ sumTasks, sumPayments, sumTasksNochecked, sumPaymentsNochecked}) {
+import filtredByChecked from "./helpres/filtredByChecked";
+import sumByProperty from "./helpres/sumByProperty";
 
-const balance = sumPayments - sumTasks;
-const balanceNochecked = sumPaymentsNochecked - sumTasksNochecked;
+export default function Balance({ tasks, payments }) {
+  const tasksChecked = filtredByChecked(tasks, true);
+  const paymentsChecked = filtredByChecked(payments, true);
+  const sumTasksChecked = sumByProperty(tasksChecked, "cost");
+  const sumPaymentsChecked = sumByProperty(paymentsChecked, "amount");
+
+  const tasksNochecked = filtredByChecked(tasks, false);
+  const paymentsNochecked = filtredByChecked(payments, false);
+  const sumTasksNochecked = sumByProperty(tasksNochecked, "cost");
+  const sumPaymentsNochecked = sumByProperty(paymentsNochecked, "amount");
+
+  const balance = sumPaymentsChecked - sumTasksChecked;
+  const balanceNochecked = sumPaymentsNochecked - sumTasksNochecked;
 
   return (
     <div className='salary'>
       <div className='balance' data-balance={balance >= 0 ? "+" : "-"}>
-        <div>{balance >= 0 ? "+" : ""}{balance}</div>
+        <div>
+          {balance >= 0 ? "+" : ""}
+          {balance}
+        </div>
         <div>баланс</div>
       </div>
       <div className='sum-tasks'>
-        <div>{sumTasks}</div>
+        <div>{sumTasksChecked}</div>
         <div>сумма затрат</div>
       </div>
       <div className='sum-payments'>
-        <div>{sumPayments}</div>
+        <div>{sumPaymentsChecked}</div>
         <div>сумма денег</div>
       </div>
       <div className='balance-nochecked'>
-        <div>{balanceNochecked >= 0 ? "+" : ""}{balanceNochecked}</div>
+        <div>
+          {balanceNochecked >= 0 ? "+" : ""}
+          {balanceNochecked}
+        </div>
         <div>баланс неподтвержденных</div>
       </div>
       <div className='sum-tasks-nochecked'>
