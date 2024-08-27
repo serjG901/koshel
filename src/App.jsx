@@ -59,8 +59,6 @@ function App() {
     .filter((payment) => !payment.confirm)
     .reduce((acc, a) => acc + +a.amount, 0);
 
-  const balance = sumPayments - sumTasks;
-
   const statTasks = Object.entries(
     Object.groupBy(tasks, ({ description }) => description)
   )
@@ -102,7 +100,6 @@ function App() {
       <h1>KOSHEL</h1>
       <FormDataRange />
       <Balance
-        balance={balance}
         sumTasks={sumTasks}
         sumPayments={sumPayments}
         sumTasksNochecked={sumTasksNochecked}
