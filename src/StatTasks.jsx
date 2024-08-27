@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import filtredByChecked from "./helpres/filtredByChecked";
-import sumByProperty from "./helpers/sumByProperty";
+import sumByProperty from "./helpres/sumByProperty";
 
 export default function StatTasks({ tasks }) {
   const tasksChecked = filtredByChecked(tasks, true);
