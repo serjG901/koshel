@@ -2,13 +2,11 @@
 import filtredByChecked from "./helpres/filtredByChecked";
 
 export default function StatTasks({
-  startDateRange,
-  endDateRange,
-  paymentsAll,
+  payments
 }) {
-  const payments = filtredByChecked(paymentsAll, true);
+  const paymentsChecked = filtredByChecked(payments, true);
   const statPayments = Object.entries(
-    Object.groupBy(payments, ({ description }) => description)
+    Object.groupBy(paymentsChecked, ({ description }) => description)
   )
     .map((desk) => {
       return [
@@ -30,17 +28,6 @@ export default function StatTasks({
     <details>
       <summary>
         Статистика платежей
-        <div>
-          {endDateRange - startDateRange === 0 && endDateRange
-            ? ` за ${new Date(startDateRange).toLocaleDateString()}`
-            : endDateRange - startDateRange > 0
-            ? ` c ${new Date(
-                startDateRange
-              ).toLocaleDateString()} по ${new Date(
-                endDateRange
-              ).toLocaleDateString()}`
-            : null}
-        </div>
       </summary>
       <div className='statistic'>
         <div>
@@ -51,7 +38,7 @@ export default function StatTasks({
         {statPayments}
         <div>
           <div>всего платежей:</div>
-          <div>{payments.length}</div>
+          <div>{paymentsChecked.length}</div>
         </div>
       </div>
     </details>
