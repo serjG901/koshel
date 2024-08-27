@@ -23,6 +23,17 @@ function App() {
   return (
     <>
       <h1>KOSHEL</h1>
+      <div>
+          {endDateRange - startDateRange === 0 && endDateRange
+            ? `за ${new Date(startDateRange).toLocaleDateString()}`
+            : endDateRange - startDateRange > 0
+            ? `c ${new Date(
+                startDateRange
+              ).toLocaleDateString()} по ${new Date(
+                endDateRange
+              ).toLocaleDateString()}`
+            : null}
+        </div>
       <FormDataRange />
       <Balance tasks={tasks} payments={payments} />
       <Tasks tasks={tasks} />
