@@ -18,7 +18,7 @@ const balanceNochecked = sumPaymentsNochecked - sumTasksNochecked;
         <div>{sumPayments}</div>
         <div>сумма денег</div>
       </div>
-      <div className='balanceNochecked'>
+      <div className='balance-nochecked'>
         <div>{balanceNochecked >= 0 ? "+" : ""}{balanceNochecked}</div>
         <div>баланс неподтвержденных</div>
       </div>
