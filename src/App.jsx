@@ -16,8 +16,10 @@ function App() {
 
   const [startDateRange, endDateRange] = dateRange;
 
+  const period = endDateRange - startDateRange;
+
   const tasks =
-    endDateRange - startDateRange < 0 || !endDateRange
+    period < 0 || !endDateRange
       ? tasksAll
       : tasksAll.filter((task) => {
           console.log(startDateRange, Date.parse(task.date), endDateRange);
@@ -32,7 +34,7 @@ function App() {
         });
 
   const payments =
-    endDateRange - startDateRange < 0 || !endDateRange
+    period < 0 || !endDateRange
       ? paymentsAll
       : paymentsAll.filter((payment) => {
           return (
@@ -113,8 +115,19 @@ function App() {
         </div>
       </details>
       <div>
-        <div>Статистика</div>
-        <div>(предмет/услуга: суммы = общая сумма)</div>
+        <div>
+          Статистика
+          {period === 0 && endDateRange
+            ? ` за ${new Date(startDateRange).toLocaleDateString()}`
+            : period > 0
+            ? ` c ${new Date(
+                startDateRange
+              ).toLocaleDateString()} по ${new Date(
+                endDateRange
+              ).toLocaleDateString()}`
+            : ""}
+        </div>
+        <div>(предмет/услуга: затраты = общая сумма)</div>
         {statTasks}
         <div>всего оплат: {tasks.length}</div>
       </div>
@@ -135,7 +148,18 @@ function App() {
         </div>
       </details>
       <div>
-        <div>Статистика</div>
+        <div>
+          Статистика
+          {period === 0 && endDateRange
+            ? ` за ${new Date(startDateRange).toLocaleDateString()}`
+            : period > 0
+            ? ` c ${new Date(
+                startDateRange
+              ).toLocaleDateString()} по ${new Date(
+                endDateRange
+              ).toLocaleDateString()}`
+            : ""}
+        </div>
         <div>(За что / наличка / безнал: платежи = сумма)</div>
         {statPayments}
         <div>всего платежей: {payments.length}</div>
