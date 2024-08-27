@@ -248,21 +248,23 @@ label:has(input:valid) > span {
 }
 
 .statistic > div:first-child {
-  color: gray;
+  color: var(--color-balance-description);
+  div:nth-child(2) {
+    text-align: center;
+  }
 }
 
 .statistic > div:last-child {
-  color: gray;
+  color: var(--color-balance-description);
+  div:nth-child(2) {
+    color: var(--color-text);
+  }
 }
 
 .statistic > div > div {
   padding: 0.5rem;
 }
 
-.statistic > div > div:nth-child(2) {
+.statistic > div > div {
   background-color: hsla(0, 0%, 100%, 0.1);
-}
-
-.statistic > div > div:nth-child(2n + 1) {
-  background-color: hsla(0, 0%, 100%, 0.2);
 }
