@@ -24,7 +24,7 @@ export default function StatTasks({ startDateRange, endDateRange, tasksAll }) {
   return (
     <details>
       <summary>
-        <div>Статистика затрат</div>
+        Статистика затрат
         <div>
           {endDateRange - startDateRange === 0 && endDateRange
             ? ` за ${new Date(startDateRange).toLocaleDateString()}`
