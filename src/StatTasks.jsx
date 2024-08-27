@@ -12,8 +12,9 @@ export default function StatTasks({ startDateRange, endDateRange, tasks }) {
     .map((desk) => {
       return (
         <div key={desk[0]}>
-          {desk[0]}: {desk[1].join(", ")} ={" "}
-          {desk[1].reduce((acc, cost) => acc + +cost, 0)}
+          <div>{desk[0]}</div>
+          <div>{desk[1].join(", ")}</div>
+          <div> {desk[1].reduce((acc, cost) => acc + +cost, 0)}</div>
         </div>
       );
     });
@@ -34,9 +35,16 @@ export default function StatTasks({ startDateRange, endDateRange, tasks }) {
         </div>
       </summary>
       <div className='statistic'>
-        <div>(предмет/услуга: затраты = общая сумма)</div>
+        <div>
+          <div>предмет/услуга</div>
+          <div>затраты</div>
+          <div>сумма</div>
+        </div>
         {statTasks}
-        <div>всего оплат: {tasks.length}</div>
+        <div>
+          <div>всего оплат</div>
+          <div>{tasks.length}</div>
+        </div>
       </div>
     </details>
   );
