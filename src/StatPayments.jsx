@@ -1,5 +1,12 @@
 /* eslint-disable react/prop-types */
-export default function StatTasks({ startDateRange, endDateRange, payments }) {
+import filtredByChecked from "./helpres/filtredByChecked";
+
+export default function StatTasks({
+  startDateRange,
+  endDateRange,
+  paymentsAll,
+}) {
+  const payments = filtredByChecked(paymentsAll, true);
   const statPayments = Object.entries(
     Object.groupBy(payments, ({ description }) => description)
   )

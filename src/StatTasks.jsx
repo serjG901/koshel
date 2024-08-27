@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
-export default function StatTasks({ startDateRange, endDateRange, tasks }) {
+import filtredByChecked from "./helpres/filtredByChecked";
+
+export default function StatTasks({ startDateRange, endDateRange, tasksAll }) {
+  const tasks = filtredByChecked(tasksAll, true);
   const statTasks = Object.entries(
     Object.groupBy(tasks, ({ description }) => description)
   )
