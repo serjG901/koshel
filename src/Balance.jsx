@@ -26,11 +26,11 @@ export default function Balance({ tasks, payments }) {
         <div>баланс</div>
       </div>
       <div className='sum-tasks'>
-        <div>{sumTasksChecked}</div>
+        <div>-{sumTasksChecked}</div>
         <div>сумма затрат</div>
       </div>
       <div className='sum-payments'>
-        <div>{sumPaymentsChecked}</div>
+        <div>+{sumPaymentsChecked}</div>
         <div>сумма денег</div>
       </div>
       <div className='balance-nochecked'>
@@ -41,11 +41,11 @@ export default function Balance({ tasks, payments }) {
         <div>баланс неподтвержденных</div>
       </div>
       <div className='sum-tasks-nochecked'>
-        <div>{sumTasksNochecked}</div>
+        <div>-{sumTasksNochecked}</div>
         <div>сумма затрат неподтвержденных</div>
       </div>
       <div className='sum-payments-nochecked'>
-        <div>{sumPaymentsNochecked}</div>
+        <div>+{sumPaymentsNochecked}</div>
         <div>сумма денег неподтвержденных</div>
       </div>
     </div>
