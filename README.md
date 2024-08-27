@@ -1,2 +1,2 @@
-# school-salary
- do learning and get money
+# koshel
+ simple self finance manager
