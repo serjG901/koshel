@@ -89,6 +89,7 @@ function App() {
 
   return (
     <>
+      <h1>KOSHEL</h1>
       <FormDataRange />
       <Balance
         balance={balance}
