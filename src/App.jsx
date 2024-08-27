@@ -121,9 +121,9 @@ function App() {
               })}
         </div>
       </details>
-      <div>
-        <div>
-          Статистика
+      <details>
+        <summary>
+          Статистика затрат
           {period === 0 && endDateRange
             ? ` за ${new Date(startDateRange).toLocaleDateString()}`
             : period > 0
@@ -133,11 +133,25 @@ function App() {
                 endDateRange
               ).toLocaleDateString()}`
             : ""}
+        </summary>
+        <div>
+          <div>
+            {period === 0 && endDateRange
+              ? ` за ${new Date(startDateRange).toLocaleDateString()}`
+              : period > 0
+              ? ` c ${new Date(
+                  startDateRange
+                ).toLocaleDateString()} по ${new Date(
+                  endDateRange
+                ).toLocaleDateString()}`
+              : ""}
+          </div>
+          <div>(предмет/услуга: затраты = общая сумма)</div>
+          {statTasks}
+          <div>всего оплат: {tasks.length}</div>
         </div>
-        <div>(предмет/услуга: затраты = общая сумма)</div>
-        {statTasks}
-        <div>всего оплат: {tasks.length}</div>
-      </div>
+      </details>
+
       <details>
         <summary>Платежи</summary>
         <FormAddPayment />
