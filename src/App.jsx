@@ -37,9 +37,9 @@ function App() {
       <FormDataRange />
       <Balance tasks={tasks} payments={payments} />
       <Tasks tasks={tasks} />
-      <StatTasks tasksAll={tasks} />
+      <StatTasks tasks={tasks} />
       <Payments payments={payments} />
-      <StatPayments paymentsAll={payments} />
+      <StatPayments payments={payments} />
     </>
   );
 }
