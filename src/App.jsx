@@ -29,13 +29,13 @@ function App() {
       <StatTasks
         startDateRange={startDateRange}
         endDateRange={endDateRange}
-        tasks={tasks}
+        tasksAll={tasks}
       />
       <Payments payments={payments} />
       <StatPayments
         startDateRange={startDateRange}
         endDateRange={endDateRange}
-        payments={payments}
+        paymentsAll={payments}
       />
     </>
   );
