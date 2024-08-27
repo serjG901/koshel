@@ -37,17 +37,9 @@ function App() {
       <FormDataRange />
       <Balance tasks={tasks} payments={payments} />
       <Tasks tasks={tasks} />
-      <StatTasks
-        startDateRange={startDateRange}
-        endDateRange={endDateRange}
-        tasksAll={tasks}
-      />
+      <StatTasks tasksAll={tasks} />
       <Payments payments={payments} />
-      <StatPayments
-        startDateRange={startDateRange}
-        endDateRange={endDateRange}
-        paymentsAll={payments}
-      />
+      <StatPayments paymentsAll={payments} />
     </>
   );
 }
