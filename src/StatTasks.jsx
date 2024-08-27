@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import filtredByChecked from "./helpres/filtredByChecked";
 
-export default function StatTasks({ startDateRange, endDateRange, tasksAll }) {
-  const tasks = filtredByChecked(tasksAll, true);
+export default function StatTasks({ tasks }) {
+  const tasksChecked = filtredByChecked(tasks, true);
   const statTasks = Object.entries(
-    Object.groupBy(tasks, ({ description }) => description)
+    Object.groupBy(tasksChecked, ({ description }) => description)
   )
     .map((desk) => {
       return [
@@ -25,17 +25,6 @@ export default function StatTasks({ startDateRange, endDateRange, tasksAll }) {
     <details>
       <summary>
         Статистика затрат
-        <div>
-          {endDateRange - startDateRange === 0 && endDateRange
-            ? ` за ${new Date(startDateRange).toLocaleDateString()}`
-            : endDateRange - startDateRange > 0
-            ? ` c ${new Date(
-                startDateRange
-              ).toLocaleDateString()} по ${new Date(
-                endDateRange
-              ).toLocaleDateString()}`
-            : null}
-        </div>
       </summary>
       <div className='statistic'>
         <div>
@@ -46,7 +35,7 @@ export default function StatTasks({ startDateRange, endDateRange, tasksAll }) {
         {statTasks}
         <div>
           <div>всего оплат</div>
-          <div>{tasks.length}</div>
+          <div>{tasksChecked.length}</div>
         </div>
       </div>
     </details>
