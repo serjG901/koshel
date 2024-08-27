@@ -12,8 +12,9 @@ export default function StatTasks({ startDateRange, endDateRange, payments }) {
     .map((desk) => {
       return (
         <div key={desk[0]}>
-          {desk[0]}: {desk[1].join(", ")} ={" "}
-          {desk[1].reduce((acc, cost) => acc + +cost, 0)}
+          <div>{desk[0]}</div>
+          <div>{desk[1].join(", ")}</div>
+          <div>{desk[1].reduce((acc, cost) => acc + +cost, 0)}</div>
         </div>
       );
     });
@@ -21,19 +22,30 @@ export default function StatTasks({ startDateRange, endDateRange, payments }) {
   return (
     <details>
       <summary>
-        Статистика платежей
-        {endDateRange - startDateRange === 0 && endDateRange
-          ? ` за ${new Date(startDateRange).toLocaleDateString()}`
-          : endDateRange - startDateRange > 0
-          ? ` c ${new Date(startDateRange).toLocaleDateString()} по ${new Date(
-              endDateRange
-            ).toLocaleDateString()}`
-          : ""}
+        <div>Статистика платежей</div>
+        <div>
+          {endDateRange - startDateRange === 0 && endDateRange
+            ? ` за ${new Date(startDateRange).toLocaleDateString()}`
+            : endDateRange - startDateRange > 0
+            ? ` c ${new Date(
+                startDateRange
+              ).toLocaleDateString()} по ${new Date(
+                endDateRange
+              ).toLocaleDateString()}`
+            : null}
+        </div>
       </summary>
       <div className='statistic'>
-        <div>(За что / наличка / безнал: платежи = сумма)</div>
+        <div>
+          <div>За что / наличка / безнал</div>
+          <div>платежи</div>
+          <div>сумма</div>
+        </div>
         {statPayments}
-        <div>всего платежей: {payments.length}</div>
+        <div>
+          <div>всего платежей:</div>
+          <div>{payments.length}</div>
+        </div>
       </div>
     </details>
   );

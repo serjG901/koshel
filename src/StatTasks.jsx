@@ -20,14 +20,18 @@ export default function StatTasks({ startDateRange, endDateRange, tasks }) {
   return (
     <details>
       <summary>
-        Статистика затрат
-        {endDateRange - startDateRange === 0 && endDateRange
-          ? ` за ${new Date(startDateRange).toLocaleDateString()}`
-          : endDateRange - startDateRange > 0
-          ? ` c ${new Date(startDateRange).toLocaleDateString()} по ${new Date(
-              endDateRange
-            ).toLocaleDateString()}`
-          : ""}
+        <div>Статистика затрат</div>
+        <div>
+          {endDateRange - startDateRange === 0 && endDateRange
+            ? ` за ${new Date(startDateRange).toLocaleDateString()}`
+            : endDateRange - startDateRange > 0
+            ? ` c ${new Date(
+                startDateRange
+              ).toLocaleDateString()} по ${new Date(
+                endDateRange
+              ).toLocaleDateString()}`
+            : null}
+        </div>
       </summary>
       <div className='statistic'>
         <div>(предмет/услуга: затраты = общая сумма)</div>
