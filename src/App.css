@@ -162,7 +162,8 @@ label:has(input:valid) > span {
     display: grid;
     grid-template:
         "balance balance"
-        "sumtasks sumpayments";
+        "sumtasks sumpayments"
+        "sumtasks-nochecked sumpayments-nochecked";
     padding: 2rem;
 }
 
@@ -194,6 +195,20 @@ label:has(input:valid) > span {
     font-size: 2rem;
     font-weight: 700;
     color: var(--color-summ-payments);
+}
+
+.sum-tasks-nochecked {
+    grid-area: sumtasks-nochecked;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-bg-details);
+}
+
+.sum-payments-nochecked {
+    grid-area: sumpayments-nochecked;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-bg-details);
 }
 
 .popover {

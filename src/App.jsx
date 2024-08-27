@@ -51,6 +51,14 @@ function App() {
     .filter((payment) => payment.confirm)
     .reduce((acc, a) => acc + +a.amount, 0);
 
+  const sumTasksNochecked = tasks
+    .filter((task) => !task.confirm)
+    .reduce((acc, a) => acc + +a.cost, 0);
+
+  const sumPaymentsNochecked = payments
+    .filter((payment) => !payment.confirm)
+    .reduce((acc, a) => acc + +a.amount, 0);
+
   const balance = sumPayments - sumTasks;
 
   const statTasks = Object.entries(
@@ -97,6 +105,8 @@ function App() {
         balance={balance}
         sumTasks={sumTasks}
         sumPayments={sumPayments}
+        sumTasksNochecked={sumTasksNochecked}
+        sumPaymentsNochecked={sumPaymentsNochecked}
       />
       <details>
         <summary>Затраты</summary>
