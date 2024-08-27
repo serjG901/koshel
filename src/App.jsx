@@ -49,7 +49,7 @@ function App() {
     .filter((payment) => payment.confirm)
     .reduce((acc, a) => acc + +a.amount, 0);
 
-  const balance = sumTasks - sumPayments;
+  const balance = sumPayments - sumTasks;
 
   const statTasks = Object.entries(
     Object.groupBy(tasks, ({ description }) => description)
