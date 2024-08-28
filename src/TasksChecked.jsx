@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
-import FormAddTask from "./FormAddTask";
+import StatTasks from "./StatTasks";
 import PopoverTask from "./PopoverTask";
 
-export default function Tasks({ tasks }) {
+export default function TasksChecked({ tasksChecked }) {
   return (
     <details>
       <summary>Затраты</summary>
-      <FormAddTask />
+      <StatTasks tasks={tasksChecked} />
       <div className='tasks'>
-        {!tasks.length ||
-          tasks
+        {!tasksChecked.length ||
+          tasksChecked
             .toSorted(
               (task1, task2) =>
-                Date.parse(new Date(task1.date)) -
-                Date.parse(new Date(task2.date))
+                Date.parse(new Date(task2.date)) -
+                Date.parse(new Date(task1.date))
             )
             .map((task) => {
               return <PopoverTask key={task.id} task={task} />;

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useStore } from "./store/store";
+
 export default function PopoverPayment({ payment }) {
   const [updatePayment] = useStore((state) => [state.updatePayment]);
 

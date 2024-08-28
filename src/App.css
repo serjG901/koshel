@@ -38,15 +38,16 @@ input:focus-visible {
   gap: 1rem;
 }
 
-details:has(details) {
+details {
   margin: 2rem 0;
   background-color: var(--color-bg-details);
   border-radius: 8px;
   width: 100%;
 }
 
+
 details > details {
-  width: 70%;
+  width: 90%;
   opacity: 0.8;
   margin: 1rem auto;
   border: 1px solid var(--color-border-details);
@@ -100,6 +101,10 @@ label:has(input:focus) > span {
 
 label:has(input:valid) > span {
   transform: translateY(-2rem);
+}
+
+.dateRangeDisplayed {
+  color: var(--color-balance);
 }
 
 .tasks,
@@ -257,6 +262,9 @@ label:has(input:valid) > span {
 .statistic > div:last-child {
   color: var(--color-balance-description);
   div:nth-child(2) {
+    color: var(--color-text);
+  }
+  div:nth-child(3) {
     color: var(--color-text);
   }
 }

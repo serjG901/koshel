@@ -1,20 +1,22 @@
 /* eslint-disable react/prop-types */
-import filtredByChecked from "./helpres/filtredByChecked";
-import sumByProperty from "./helpres/sumByProperty";
+import sumByProperty from "./helpers/sumByProperty";
 
-export default function Balance({ tasks, payments }) {
-  const tasksChecked = filtredByChecked(tasks, true);
-  const paymentsChecked = filtredByChecked(payments, true);
+export default function Balance({
+  tasksChecked,
+  paymentsChecked,
+  tasksNochecked,
+  paymentsNochecked,
+}) {
   const sumTasksChecked = sumByProperty(tasksChecked, "cost");
   const sumPaymentsChecked = sumByProperty(paymentsChecked, "amount");
 
-  const tasksNochecked = filtredByChecked(tasks, false);
-  const paymentsNochecked = filtredByChecked(payments, false);
   const sumTasksNochecked = sumByProperty(tasksNochecked, "cost");
   const sumPaymentsNochecked = sumByProperty(paymentsNochecked, "amount");
 
-  const balance = Math.trunc((sumPaymentsChecked - sumTasksChecked)*100)/100;
-  const balanceNochecked = Math.trunc((sumPaymentsNochecked - sumTasksNochecked)*100)/100;
+  const balance =
+    Math.trunc((sumPaymentsChecked - sumTasksChecked) * 100) / 100;
+  const balanceNochecked =
+    Math.trunc((sumPaymentsNochecked - sumTasksNochecked) * 100) / 100;
 
   return (
     <div className='salary'>

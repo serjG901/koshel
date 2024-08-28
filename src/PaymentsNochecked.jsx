@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import FormAddPayment from "./FormAddPayment";
+import StatPayments from "./StatPayments";
 import PopoverPayment from "./PopoverPayment";
 
-export default function Payments({ payments }) {
+export default function PaymentsNochecked({ paymentsNochecked }) {
   return (
     <details>
-      <summary>Платежи</summary>
-      <FormAddPayment />
+      <summary>Платежи неподтвержденные</summary>
+      <StatPayments payments={paymentsNochecked} />
       <div className='payments'>
-        {!payments.length ||
-          payments
+        {!paymentsNochecked.length ||
+          paymentsNochecked
             .toSorted(
               (payment1, payment2) =>
                 Date.parse(new Date(payment1.date)) -

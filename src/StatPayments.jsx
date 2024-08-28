@@ -1,13 +1,9 @@
 /* eslint-disable react/prop-types */
-import filtredByChecked from "./helpres/filtredByChecked";
-import sumByProperty from "./helpres/sumByProperty";
+import sumByProperty from "./helpers/sumByProperty";
 
-export default function StatTasks({
-  payments
-}) {
-  const paymentsChecked = filtredByChecked(payments, true);
+export default function StatTasks({ payments }) {
   const statPayments = Object.entries(
-    Object.groupBy(paymentsChecked, ({ description }) => description)
+    Object.groupBy(payments, ({ description }) => description)
   )
     .map((desk) => {
       return [
@@ -27,9 +23,7 @@ export default function StatTasks({
 
   return (
     <details>
-      <summary>
-        Статистика платежей
-      </summary>
+      <summary>Статистика платежей</summary>
       <div className='statistic'>
         <div>
           <div>За что / наличка / безнал</div>
@@ -39,8 +33,8 @@ export default function StatTasks({
         {statPayments}
         <div>
           <div>всего платежей:</div>
-          <div>{paymentsChecked.length}</div>
-          <div>{sumByProperty(paymentsChecked, 'amount')}</div>
+          <div>{payments.length}</div>
+          <div>{sumByProperty(payments, "amount")}</div>
         </div>
       </div>
     </details>
