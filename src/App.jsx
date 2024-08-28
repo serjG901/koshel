@@ -50,14 +50,17 @@ function App() {
         tasksNochecked={tasksNochecked}
         paymentsNochecked={paymentsNochecked}
       />
+      <div className="group">
+        <FormAddTask />
+        <TasksChecked tasksChecked={tasksChecked} />
+        <TasksNochecked tasksNochecked={tasksNochecked} />
+      </div>
 
-      <FormAddTask />
-      <TasksChecked tasksChecked={tasksChecked} />
-      <TasksNochecked tasksNochecked={tasksNochecked} />
-
-      <FormAddPayment />
-      <PaymentsChecked paymentsChecked={paymentsChecked} />
-      <PaymentsNochecked paymentsNochecked={paymentsNochecked} />
+      <div className="group">
+        <FormAddPayment />
+        <PaymentsChecked paymentsChecked={paymentsChecked} />
+        <PaymentsNochecked paymentsNochecked={paymentsNochecked} />
+      </div>
     </>
   );
 }

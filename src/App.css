@@ -38,8 +38,12 @@ input:focus-visible {
   gap: 1rem;
 }
 
+.group {
+  margin-block: 2rem;
+}
+
 details {
-  margin: 2rem 0;
+  margin-block: 0.5rem;
   background-color: var(--color-bg-details);
   border-radius: 8px;
   width: 100%;
