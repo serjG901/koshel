@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import sumByProperty from "./helpers/sumByProperty";
-import numberWithComma from "./helpers/numberWithComma";
+import numberWithDot from "./helpers/numberWithDot";
 
 export default function Balance({
   tasksChecked,
@@ -22,31 +22,31 @@ export default function Balance({
       <div className='balance' data-balance={balance >= 0 ? "+" : "-"}>
         <div>
           {balance >= 0 ? "+" : ""}
-          {numberWithComma(balance)}
+          {numberWithDot(balance)}
         </div>
         <div>баланс</div>
       </div>
       <div className='sum-tasks'>
-        <div>-{sumTasksChecked}</div>
+        <div>-{numberWithDot(sumTasksChecked)}</div>
         <div>сумма затрат</div>
       </div>
       <div className='sum-payments'>
-        <div>+{sumPaymentsChecked}</div>
+        <div>+{numberWithDot(sumPaymentsChecked)}</div>
         <div>сумма денег</div>
       </div>
       <div className='balance-nochecked'>
         <div>
           {balanceNochecked >= 0 ? "+" : ""}
-          {balanceNochecked}
+          {numberWithDot(balanceNochecked)}
         </div>
         <div>баланс неподтвержденных</div>
       </div>
       <div className='sum-tasks-nochecked'>
-        <div>-{sumTasksNochecked}</div>
+        <div>-{numberWithDot(sumTasksNochecked)}</div>
         <div>сумма затрат неподтвержденных</div>
       </div>
       <div className='sum-payments-nochecked'>
-        <div>+{sumPaymentsNochecked}</div>
+        <div>+{numberWithDot(sumPaymentsNochecked)}</div>
         <div>сумма денег неподтвержденных</div>
       </div>
     </div>
