@@ -11,6 +11,17 @@ export default function StatTasks({ payments }) {
         desk[1].reduce((acc, payment) => (acc.push(payment.amount), acc), []),
       ];
     })
+    .sort((deskA, deskB) => {
+      const nameA = deskA[0].toUpperCase();
+      const nameB = deskB[0].toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    })
     .map((desk) => {
       return (
         <div key={desk[0]}>
