@@ -39,7 +39,7 @@ export default function FormAddPayment() {
           </label>
           <label htmlFor='payment-confirm'>
             Подтверждено
-            <input type='checkbox' id='payment-confirm' />
+            <input type='checkbox' id='payment-confirm' checked />
           </label>
         </div>
         <button type='submit'>Добавить платеж</button>
