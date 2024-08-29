@@ -112,7 +112,8 @@ label:has(input:valid) > span {
 }
 
 .tasks,
-.payments {
+.payments,
+.items {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -121,7 +122,8 @@ label:has(input:valid) > span {
 }
 
 .payment,
-.task {
+.task,
+.item {
   display: flex;
   flex-direction: column;
   gap: 8px;
