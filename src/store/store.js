@@ -8,7 +8,7 @@ export const useStore = create()(
       tasks: [],
       updateTasks: () => {
         set((state) => {
-          return {tasks: state.tasks.map((task) => ({...task, cost: task.cost*100}))}
+          return {tasks: state.tasks.map((task) => ({...task, amount: task.cost}))}
         });
       },
       updatePayments: () => {
