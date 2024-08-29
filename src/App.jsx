@@ -37,7 +37,8 @@ function App() {
 
   const tasksNochecked = filtredByChecked(tasks, false);
   const paymentsNochecked = filtredByChecked(payments, false);
-
+/*  <button onClick={updateTasks}>update tasks</button>
+      <button onClick={updatePayments}>update payments</button>*/
   return (
     <>
       <h1>KOSHEL</h1>
@@ -46,8 +47,7 @@ function App() {
         startDateRange={startDateRange}
         endDateRange={endDateRange}
       />
-      <button onClick={updateTasks}>update tasks</button>
-      <button onClick={updatePayments}>update payments</button>
+   
       <Balance
         tasksChecked={tasksChecked}
         paymentsChecked={paymentsChecked}
