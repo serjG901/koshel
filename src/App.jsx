@@ -18,11 +18,14 @@ import filtredByPeriod from "./helpers/filtredByPeriod";
 import filtredByChecked from "./helpers/filtredByChecked";
 
 function App() {
-  const [tasksAll, paymentsAll, dateRange] = useStore((state) => [
-    state.tasks,
-    state.payments,
-    state.dateRange,
-  ]);
+  const [tasksAll, paymentsAll, dateRange, updateTasks, updatePayments] =
+    useStore((state) => [
+      state.tasks,
+      state.payments,
+      state.dateRange,
+      state.updateTasks,
+      state.updatePayments,
+    ]);
 
   const [startDateRange, endDateRange] = dateRange;
 
@@ -43,20 +46,21 @@ function App() {
         startDateRange={startDateRange}
         endDateRange={endDateRange}
       />
-
+      <button onClick={updateTasks}>update tasks</button>
+      <button onClick={updatePayments}>update payments</button>
       <Balance
         tasksChecked={tasksChecked}
         paymentsChecked={paymentsChecked}
         tasksNochecked={tasksNochecked}
         paymentsNochecked={paymentsNochecked}
       />
-      <div className="group">
+      <div className='group'>
         <FormAddTask />
         <TasksChecked tasksChecked={tasksChecked} />
         <TasksNochecked tasksNochecked={tasksNochecked} />
       </div>
 
-      <div className="group">
+      <div className='group'>
         <FormAddPayment />
         <PaymentsChecked paymentsChecked={paymentsChecked} />
         <PaymentsNochecked paymentsNochecked={paymentsNochecked} />

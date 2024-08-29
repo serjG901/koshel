@@ -6,6 +6,16 @@ export const useStore = create()(
     (set, get) => ({
       id: 0,
       tasks: [],
+      updateTasks: () => {
+        set((state) => {
+          return {tasks: state.tasks.map((task) => ({...task, cost: task.cost*100}))}
+        });
+      },
+      updatePayments: () => {
+        set((state) => {
+          return {payments: state.payments.map((payment) => ({...payment, amount: payment.amount*100}))}
+        });
+      },
       addTask: (newTask) =>
         set((state) => {
           const nextId = get().id + 1;

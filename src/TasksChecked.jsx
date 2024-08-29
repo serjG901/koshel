@@ -3,7 +3,7 @@ import StatTasks from "./StatTasks";
 import PopoverTask from "./PopoverTask";
 
 export default function TasksChecked({ tasksChecked }) {
-  let taskDate = 0;
+  let taskDate = "";
   return (
     <details>
       <summary>Затраты</summary>
@@ -20,6 +20,7 @@ export default function TasksChecked({ tasksChecked }) {
               let first = false;
               if (!taskDate) (taskDate = task.date), (first = true);
               let equal = task.date === taskDate;
+              if (!equal) taskDate = task.date;
               return equal ? (
                 <>
                   {first && <div className='break-line'>{task.date}</div>}
