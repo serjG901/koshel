@@ -11,6 +11,7 @@ export default function StatTasks({ tasks }) {
         desk[1].reduce((acc, task) => (acc.push(task.cost), acc), []),
       ];
     })
+    .sort((deskA, deskB) =>  deskA - deskB)
     .map((desk) => {
       return (
         <div key={desk[0]}>
