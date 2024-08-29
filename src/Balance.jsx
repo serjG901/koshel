@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import sumByProperty from "./helpers/sumByProperty";
+import numberWithComma from "./helpers/numberWithComma";
 
 export default function Balance({
   tasksChecked,
@@ -21,7 +22,7 @@ export default function Balance({
       <div className='balance' data-balance={balance >= 0 ? "+" : "-"}>
         <div>
           {balance >= 0 ? "+" : ""}
-          {balance}
+          {numberWithComma(balance)}
         </div>
         <div>баланс</div>
       </div>
