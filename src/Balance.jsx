@@ -7,16 +7,14 @@ export default function Balance({
   tasksNochecked,
   paymentsNochecked,
 }) {
-  const sumTasksChecked = sumByProperty(tasksChecked, "cost");
-  const sumPaymentsChecked = sumByProperty(paymentsChecked, "amount");
+  const sumTasksChecked = sumByProperty(tasksChecked, "cost") / 100;
+  const sumPaymentsChecked = sumByProperty(paymentsChecked, "amount") / 100;
 
-  const sumTasksNochecked = sumByProperty(tasksNochecked, "cost");
-  const sumPaymentsNochecked = sumByProperty(paymentsNochecked, "amount");
+  const sumTasksNochecked = sumByProperty(tasksNochecked, "cost") / 100;
+  const sumPaymentsNochecked = sumByProperty(paymentsNochecked, "amount") / 100;
 
-  const balance =
-    Math.trunc((sumPaymentsChecked - sumTasksChecked) * 100) / 100;
-  const balanceNochecked =
-    Math.trunc((sumPaymentsNochecked - sumTasksNochecked) * 100) / 100;
+  const balance = (sumPaymentsChecked - sumTasksChecked) / 100;
+  const balanceNochecked = (sumPaymentsNochecked - sumTasksNochecked) / 100;
 
   return (
     <div className='salary'>

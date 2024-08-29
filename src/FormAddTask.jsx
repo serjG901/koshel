@@ -7,7 +7,7 @@ export default function FormAddTask() {
     e.preventDefault();
     addTask({
       date: e.target["task-date"].value,
-      cost: e.target["task-cost"].value,
+      cost: e.target["task-cost"].value * 100,
       description: e.target["task-description"].value,
       confirm: e.target["task-confirm"].checked,
     });

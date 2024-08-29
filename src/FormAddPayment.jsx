@@ -7,7 +7,7 @@ export default function FormAddPayment() {
     e.preventDefault();
     addPayment({
       date: e.target["payment-date"].value,
-      amount: e.target["payment-amount"].value,
+      amount: e.target["payment-amount"].value * 100,
       description: e.target["payment-description"].value,
       confirm: e.target["payment-confirm"].checked,
     });
