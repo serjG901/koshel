@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import StatTasks from "./StatTasks";
-import PopoverTask from "./PopoverTask";
+import Statistics from "./Statistics";
+import CardOfItem from "./CardOfItem";
 
 export default function ListOfCards({
   listName,
+  typeCard,
   items,
   typeOfSort = "",
   search = "",
@@ -13,7 +14,7 @@ export default function ListOfCards({
     <details>
       <summary>{listName}</summary>
 
-      <StatTasks tasks={items} />
+      <Statistics items={items} />
 
       <div className='items'>
         {!items.length ||
@@ -49,7 +50,7 @@ export default function ListOfCards({
                   ) : first ? (
                     <div className='break-line'>{item.date}</div>
                   ) : null}
-                  <PopoverTask key={item.id} task={item} />
+                  <CardOfItem key={item.id} task={item} typeCard={typeCard} search={search}/>
                 </>
               );
             })}

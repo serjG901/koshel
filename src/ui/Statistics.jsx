@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import sumByProperty from "./helpers/sumByProperty";
+import sumByProperty from "../helpers/sumByProperty";
 
-export default function StatTasks({ tasks }) {
-  const statTasks = Object.entries(
-    Object.groupBy(tasks, ({ description }) => description)
+export default function Statistics({ items }) {
+  const statItems = Object.entries(
+    Object.groupBy(items, ({ description }) => description)
   )
     .map((desk) => {
       return [
         desk[0],
-        desk[1].reduce((acc, task) => (acc.push(task.amount), acc), []),
+        desk[1].reduce((acc, item) => (acc.push(item.amount), acc), []),
       ];
     })
     .sort((deskA, deskB) => {
@@ -33,18 +33,18 @@ export default function StatTasks({ tasks }) {
     });
   return (
     <details>
-      <summary>Статистика затрат</summary>
+      <summary>Статистика</summary>
       <div className='statistic'>
         <div>
-          <div>предмет/услуга</div>
-          <div>затраты</div>
+          <div>описание</div>
+          <div>стоимости</div>
           <div>сумма</div>
         </div>
-        {statTasks}
+        {statItems}
         <div>
-          <div>всего оплат</div>
-          <div>{tasks.length}</div>
-          <div>{sumByProperty(tasks, "amount")}</div>
+          <div>всего</div>
+          <div>{items.length}</div>
+          <div>{sumByProperty(items, "amount")}</div>
         </div>
       </div>
     </details>

@@ -13,7 +13,7 @@ export const useStore = create()(
       },
       updatePayments: () => {
         set((state) => {
-          return {payments: state.payments.map((payment) => ({...payment, amount: payment.amount*100}))}
+          return {payments: state.payments.map((payment) => ({...payment, amount: payment.amount}))}
         });
       },
       addTask: (newTask) =>

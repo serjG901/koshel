@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useStore } from "./store/store";
 
-import FormDataRange from "./FormDataRange";
+import FormDataRange from "./ui/FormDataRange";
 
 import Balance from "./Balance";
 
@@ -37,12 +37,12 @@ function App() {
 
   const tasksNochecked = filtredByChecked(tasks, false);
   const paymentsNochecked = filtredByChecked(payments, false);
-/*  <button onClick={updateTasks}>update tasks</button>
+/*  
       <button onClick={updatePayments}>update payments</button>*/
   return (
     <>
       <h1>KOSHEL</h1>
-
+<button onClick={updateTasks}>update tasks</button>
       <FormDataRange
         startDateRange={startDateRange}
         endDateRange={endDateRange}

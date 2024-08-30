@@ -9,7 +9,7 @@ export default function PopoverTask({ task }) {
     updateTask({
       id,
       date: e.target["task-date"].value,
-      cost: e.target["task-cost"].value,
+      amount: e.target["task-amount"].value,
       description: e.target["task-description"].value,
       confirm: e.target["task-confirm"].checked,
     });
@@ -34,15 +34,15 @@ export default function PopoverTask({ task }) {
                 defaultValue={task.date}
               />
             </label>
-            <label htmlFor='task-cost'>
+            <label htmlFor='task-amount'>
               <span>Сумма</span>
               <input
                 type='number'
-                id='task-cost'
+                id='task-amount'
                 required
                 step='0.01'
                 min='0.01'
-                defaultValue={task.cost}
+                defaultValue={task.amount}
               />
             </label>
             <label htmlFor='task-description'>
@@ -68,7 +68,7 @@ export default function PopoverTask({ task }) {
       </div>
 
       <div className='date'>{task.date}</div>
-      <div className='cost'>{task.cost}</div>
+      <div className='amount'>{task.amount}</div>
       <div className='description'>{task.description}</div>
       <div
         className='confirm'

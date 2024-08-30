@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useStore } from "./store/store";
+import { useStore } from "../store/store";
 
 export default function FormDataRange({ startDateRange, endDateRange }) {
   const [setDateRange, resetDateRange] = useStore((state) => [

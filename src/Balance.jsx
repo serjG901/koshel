@@ -8,10 +8,10 @@ export default function Balance({
   tasksNochecked,
   paymentsNochecked,
 }) {
-  const sumTasksChecked = sumByProperty(tasksChecked, "cost");
+  const sumTasksChecked = sumByProperty(tasksChecked, "amount");
   const sumPaymentsChecked = sumByProperty(paymentsChecked, "amount");
 
-  const sumTasksNochecked = sumByProperty(tasksNochecked, "cost");
+  const sumTasksNochecked = sumByProperty(tasksNochecked, "amount");
   const sumPaymentsNochecked = sumByProperty(paymentsNochecked, "amount");
 
   const balance = sumPaymentsChecked - sumTasksChecked;
