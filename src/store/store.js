@@ -63,7 +63,7 @@ export const useStore = create()(
       },
     }),
     {
-      name: "koshelv4",
+      name: "koshelv2",
     }
   )
 );
