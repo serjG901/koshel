@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useStore } from "./store/store";
 import numStrMulty100 from "./helpers/numStrMulty100";
+import numberWithDot from "./helpers/numberWithDot";
+import NumberDiv100 from "./ui/NumberDiv100";
 
 export default function PopoverPayment({ payment }) {
   const [updatePayment] = useStore((state) => [state.updatePayment]);
@@ -20,6 +22,7 @@ export default function PopoverPayment({ payment }) {
   return (
     <div key={payment.id} className='payment'>
       <div
+        // eslint-disable-next-line react/no-unknown-property
         popover='auto'
         id={`update-popover-${payment.id}`}
         className='popover'
@@ -47,7 +50,7 @@ export default function PopoverPayment({ payment }) {
                 required
                 step='0.01'
                 min='0.01'
-                defaultValue={payment.amount}
+                defaultValue={numberWithDot(payment.amount)}
               />
             </label>
             <label htmlFor='payment-description'>
@@ -72,7 +75,9 @@ export default function PopoverPayment({ payment }) {
         </form>
       </div>
       <div className='date'>{payment.date}</div>
-      <div className='amount'>{payment.amount}</div>
+      <div className='amount'>
+        <NumberDiv100>{payment.amount}</NumberDiv100>
+      </div>
       <div className='description'>{payment.description}</div>
       <div
         className='confirm'
@@ -80,7 +85,11 @@ export default function PopoverPayment({ payment }) {
       >
         {payment.confirm ? "Подтвержден" : "Не подтвержден"}
       </div>
-      <button className='update' popovertarget={`update-popover-${payment.id}`}>
+      <button
+        className='update'
+        // eslint-disable-next-line react/no-unknown-property
+        popovertarget={`update-popover-${payment.id}`}
+      >
         Обновить
       </button>
     </div>

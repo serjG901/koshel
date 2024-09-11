@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import sumByProperty from "./helpers/sumByProperty";
-import numberWithDot from "./helpers/numberWithDot";
+import NumberDiv100 from "./ui/NumberDiv100";
 
 export default function Balance({
   tasksChecked,
@@ -22,31 +22,39 @@ export default function Balance({
       <div className='balance' data-balance={balance >= 0 ? "+" : "-"}>
         <div>
           {balance >= 0 ? "+" : "-"}
-          {numberWithDot(balance)}
+          <NumberDiv100>{balance}</NumberDiv100>
         </div>
         <div>баланс</div>
       </div>
       <div className='sum-tasks'>
-        <div>-{numberWithDot(sumTasksChecked)}</div>
+        <div>
+          -<NumberDiv100>{sumTasksChecked}</NumberDiv100>
+        </div>
         <div>сумма затрат</div>
       </div>
       <div className='sum-payments'>
-        <div>+{numberWithDot(sumPaymentsChecked)}</div>
+        <div>
+          +<NumberDiv100>{sumPaymentsChecked}</NumberDiv100>
+        </div>
         <div>сумма денег</div>
       </div>
       <div className='balance-nochecked'>
         <div>
           {balanceNochecked >= 0 ? "+" : "-"}
-          {numberWithDot(balanceNochecked)}
+          <NumberDiv100>{balanceNochecked}</NumberDiv100>
         </div>
         <div>баланс неподтвержденных</div>
       </div>
       <div className='sum-tasks-nochecked'>
-        <div>-{numberWithDot(sumTasksNochecked)}</div>
+        <div>
+          -<NumberDiv100>{sumTasksNochecked}</NumberDiv100>
+        </div>
         <div>сумма затрат неподтвержденных</div>
       </div>
       <div className='sum-payments-nochecked'>
-        <div>+{numberWithDot(sumPaymentsNochecked)}</div>
+        <div>
+          +<NumberDiv100>{sumPaymentsNochecked}</NumberDiv100>
+        </div>
         <div>сумма денег неподтвержденных</div>
       </div>
     </div>

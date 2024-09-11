@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useStore } from "./store/store";
 import numStrMulty100 from "./helpers/numStrMulty100";
+import NumberDiv100 from "./ui/NumberDiv100";
+import numberWithDot from "./helpers/numberWithDot";
 
 export default function PopoverTask({ task }) {
   const [updateTask] = useStore((state) => [state.updateTask]);
@@ -19,7 +21,12 @@ export default function PopoverTask({ task }) {
 
   return (
     <div key={task.id} className='task'>
-      <div popover='auto' id={`update-popover-${task.id}`} className='popover'>
+      <div
+        // eslint-disable-next-line react/no-unknown-property
+        popover='auto'
+        id={`update-popover-${task.id}`}
+        className='popover'
+      >
         <form
           action='submit'
           id='update-task'
@@ -43,7 +50,7 @@ export default function PopoverTask({ task }) {
                 required
                 step='0.01'
                 min='0.01'
-                defaultValue={task.amount}
+                defaultValue={numberWithDot(task.amount)}
               />
             </label>
             <label htmlFor='task-description'>
@@ -69,7 +76,9 @@ export default function PopoverTask({ task }) {
       </div>
 
       <div className='date'>{task.date}</div>
-      <div className='amount'>{task.amount}</div>
+      <div className='amount'>
+        <NumberDiv100>{task.amount}</NumberDiv100>
+      </div>
       <div className='description'>{task.description}</div>
       <div
         className='confirm'
@@ -77,7 +86,11 @@ export default function PopoverTask({ task }) {
       >
         {task.confirm ? "Подтверждена" : "Не подтверждена"}
       </div>
-      <button className='update' popovertarget={`update-popover-${task.id}`}>
+      <button
+        className='update'
+        // eslint-disable-next-line react/no-unknown-property
+        popovertarget={`update-popover-${task.id}`}
+      >
         Обновить
       </button>
     </div>

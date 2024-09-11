@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import sumByProperty from "./helpers/sumByProperty";
+import NumberDiv100 from "./ui/NumberDiv100";
+import numberWithDot from "./helpers/numberWithDot";
 
 export default function StatTasks({ tasks }) {
   const statTasks = Object.entries(
@@ -26,8 +28,12 @@ export default function StatTasks({ tasks }) {
       return (
         <div key={desk[0]}>
           <div>{desk[0]}</div>
-          <div>{desk[1].join(", ")}</div>
-          <div> {desk[1].reduce((acc, amount) => acc + +amount, 0)}</div>
+          <div>{desk[1].map((n) => numberWithDot(n)).join(", ")}</div>
+          <div>
+            <NumberDiv100>
+              {desk[1].reduce((acc, amount) => acc + +amount, 0)}
+            </NumberDiv100>
+          </div>
         </div>
       );
     });
@@ -44,7 +50,9 @@ export default function StatTasks({ tasks }) {
         <div>
           <div>всего оплат</div>
           <div>{tasks.length}</div>
-          <div>{sumByProperty(tasks, "amount")}</div>
+          <div>
+            <NumberDiv100>{sumByProperty(tasks, "amount")}</NumberDiv100>
+          </div>
         </div>
       </div>
     </details>
