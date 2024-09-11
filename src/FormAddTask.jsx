@@ -17,7 +17,7 @@ export default function FormAddTask() {
 
   return (
     <details>
-      <summary>Добавить оплату</summary>
+      <summary>Добавить затрату</summary>
       <form action='submit' id='add-task' onSubmit={handleSubmitTask}>
         <div>
           <label htmlFor='task-date'>
