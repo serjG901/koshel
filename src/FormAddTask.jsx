@@ -40,7 +40,7 @@ export default function FormAddTask() {
           </label>
           <label htmlFor='task-confirm'>
             Подтверждено
-            <input type='checkbox' id='task-confirm' checked />
+            <input type='checkbox' id='task-confirm' defaultChecked={true} />
           </label>
         </div>
         <button type='submit'>Добавить оплату</button>
