@@ -21,7 +21,7 @@ export default function Balance({
     <div className='salary'>
       <div className='balance' data-balance={balance >= 0 ? "+" : "-"}>
         <div>
-          {balance >= 0 ? "+" : ""}
+          {balance >= 0 ? "+" : "-"}
           {numberWithDot(balance)}
         </div>
         <div>баланс</div>
@@ -36,7 +36,7 @@ export default function Balance({
       </div>
       <div className='balance-nochecked'>
         <div>
-          {balanceNochecked >= 0 ? "+" : ""}
+          {balanceNochecked >= 0 ? "+" : "-"}
           {numberWithDot(balanceNochecked)}
         </div>
         <div>баланс неподтвержденных</div>

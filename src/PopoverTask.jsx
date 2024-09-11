@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useStore } from "./store/store";
+import numMulty100 from "./helpers/numMulty100";
 
 export default function PopoverTask({ task }) {
   const [updateTask] = useStore((state) => [state.updateTask]);
@@ -9,7 +10,7 @@ export default function PopoverTask({ task }) {
     updateTask({
       id,
       date: e.target["task-date"].value,
-      amount: e.target["task-amount"].value,
+      amount: numMulty100(e.target["task-amount"].value),
       description: e.target["task-description"].value,
       confirm: e.target["task-confirm"].checked,
     });

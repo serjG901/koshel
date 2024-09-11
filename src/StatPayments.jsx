@@ -27,7 +27,7 @@ export default function StatTasks({ payments }) {
         <div key={desk[0]}>
           <div>{desk[0]}</div>
           <div>{desk[1].join(", ")}</div>
-          <div>{desk[1].reduce((acc, cost) => acc + +cost, 0)}</div>
+          <div>{desk[1].reduce((acc, amount) => acc + +amount, 0)}</div>
         </div>
       );
     });

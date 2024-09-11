@@ -31,17 +31,6 @@ input:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.form-date-range {
-  background-color: var(--color-bg-details);
-  border-radius: 8px;
-  width: 100%;
-  gap: 1rem;
-}
-
-.group {
-  margin-block: 2rem;
-}
-
 details {
   margin-block: 0.5rem;
   background-color: var(--color-bg-details);
@@ -105,6 +94,17 @@ label:has(input:focus) > span {
 
 label:has(input:valid) > span {
   transform: translateY(-2rem);
+}
+
+.form-date-range {
+  background-color: var(--color-bg-details);
+  border-radius: 8px;
+  width: 100%;
+  gap: 1rem;
+}
+
+.group {
+  margin-block: 2rem;
 }
 
 .dateRangeDisplayed {

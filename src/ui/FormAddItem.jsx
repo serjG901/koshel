@@ -1,23 +1,26 @@
+/* eslint-disable react/prop-types */
 import { useStore } from "./store/store";
-import numMulty100 from "./helpers/numMulty100";
 
-export default function FormAddTask() {
-  const [addTask] = useStore((state) => [state.addTask]);
+export default function FormAddItem({ formName, type }) {
+  const [addItem] = useStore((state) => [state.addItem]);
 
   const handleSubmitTask = (e) => {
     e.preventDefault();
-    addTask({
-      date: e.target["task-date"].value,
-      amount: numMulty100(e.target["task-amount"].value),
-      description: e.target["task-description"].value,
-      confirm: e.target["task-confirm"].checked,
-    });
+    addItem(
+      {
+        date: e.target["task-date"].value,
+        amount: Math.trunc(e.target["task-amount"].value * 100),
+        description: e.target["task-description"].value,
+        confirm: e.target["task-confirm"].checked,
+      },
+      type
+    );
     document.getElementById("add-task").reset();
   };
 
   return (
     <details>
-      <summary>Добавить оплату</summary>
+      <summary>{formName} - записать</summary>
       <form action='submit' id='add-task' onSubmit={handleSubmitTask}>
         <div>
           <label htmlFor='task-date'>
@@ -35,15 +38,15 @@ export default function FormAddTask() {
             />
           </label>
           <label htmlFor='task-description'>
-            <span>Предмет/Услуга</span>
+            <span>Описание</span>
             <input type='text' id='task-description' required />
           </label>
           <label htmlFor='task-confirm'>
-            Подтверждено
+            Проведена
             <input type='checkbox' id='task-confirm' checked />
           </label>
         </div>
-        <button type='submit'>Добавить оплату</button>
+        <button type='submit'>Записать</button>
       </form>
     </details>
   );

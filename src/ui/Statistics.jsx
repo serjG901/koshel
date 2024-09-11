@@ -1,33 +1,41 @@
 /* eslint-disable react/prop-types */
 import sumByProperty from "../helpers/sumByProperty";
 
-export default function Statistics({ items }) {
+const highlightTextBySearch = (text, search) => {
+
+  const arr = text.split(search);
+
+  return <span></span>
+}
+
+export default function Statistics({ items, search }) {
+
   const statItems = Object.entries(
     Object.groupBy(items, ({ description }) => description)
   )
-    .map((desk) => {
+    .map(([description, items]) => {
       return [
-        desk[0],
-        desk[1].reduce((acc, item) => (acc.push(item.amount), acc), []),
+        description,
+        items.reduce((acc, item) => (acc.push(item.amount), acc), []),
       ];
     })
-    .sort((deskA, deskB) => {
-      const nameA = deskA[0].toUpperCase();
-      const nameB = deskB[0].toUpperCase();
-      if (nameA < nameB) {
+    .sort((descriptionA, descriptionB) => {
+      const a = descriptionA[0].toUpperCase();
+      const b = descriptionB[0].toUpperCase();
+      if (a < b) {
         return -1;
       }
-      if (nameA > nameB) {
+      if (a > b) {
         return 1;
       }
       return 0;
     })
-    .map((desk) => {
+    .map(([description, amounts]) => {
       return (
-        <div key={desk[0]}>
-          <div>{desk[0]}</div>
-          <div>{desk[1].join(", ")}</div>
-          <div> {desk[1].reduce((acc, amount) => acc + +amount, 0)}</div>
+        <div key={description}>
+          <div>{description}</div>
+          <div>{amounts.join(", ")}</div>
+          <div> {amounts.reduce((acc, amount) => acc + +amount, 0)}</div>
         </div>
       );
     });
