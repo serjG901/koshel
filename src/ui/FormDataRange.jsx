@@ -42,7 +42,7 @@ export default function FormDataRange({ startDateRange, endDateRange }) {
           </div>
         ) : null}
       </div>
-      <details>
+      <details name='details-level-1'>
         <summary>Установить период</summary>
         <form
           className='form-date-range'

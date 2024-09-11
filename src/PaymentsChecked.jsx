@@ -3,8 +3,9 @@ import StatPayments from "./StatPayments";
 import PopoverPayment from "./PopoverPayment";
 
 export default function PaymentsChecked({ paymentsChecked }) {
+  let paymentDate = "";
   return (
-    <details>
+    <details name='details-level-1'>
       <summary>Платежи</summary>
       <StatPayments payments={paymentsChecked} />
       <div className='payments'>
@@ -16,7 +17,21 @@ export default function PaymentsChecked({ paymentsChecked }) {
                 Date.parse(new Date(payment1.date))
             )
             .map((payment) => {
-              return <PopoverPayment key={payment.id} payment={payment} />;
+              let first = false;
+              if (!paymentDate) (paymentDate = payment.date), (first = true);
+              let equal = payment.date === paymentDate;
+              if (!equal) paymentDate = payment.date;
+              return equal ? (
+                <>
+                  {first && <div className='break-line'>{payment.date}</div>}
+                  <PopoverPayment key={payment.id} payment={payment} />
+                </>
+              ) : (
+                <>
+                  <div className='break-line'>{payment.date}</div>
+                  <PopoverPayment key={payment.id} payment={payment} />
+                </>
+              );
             })}
       </div>
     </details>

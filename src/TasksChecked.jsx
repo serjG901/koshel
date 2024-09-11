@@ -5,7 +5,7 @@ import PopoverTask from "./PopoverTask";
 export default function TasksChecked({ tasksChecked }) {
   let taskDate = "";
   return (
-    <details>
+    <details name='details-level-1'>
       <summary>Затраты</summary>
       <StatTasks tasks={tasksChecked} />
       <div className='tasks'>

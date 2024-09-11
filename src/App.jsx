@@ -18,14 +18,11 @@ import filtredByPeriod from "./helpers/filtredByPeriod";
 import filtredByChecked from "./helpers/filtredByChecked";
 
 function App() {
-  const [tasksAll, paymentsAll, dateRange, updateTasks, updatePayments] =
-    useStore((state) => [
-      state.tasks,
-      state.payments,
-      state.dateRange,
-      state.updateTasks,
-      state.updatePayments,
-    ]);
+  const [tasksAll, paymentsAll, dateRange] = useStore((state) => [
+    state.tasks,
+    state.payments,
+    state.dateRange,
+  ]);
 
   const [startDateRange, endDateRange] = dateRange;
 
@@ -42,7 +39,7 @@ function App() {
   return (
     <>
       <h1>KOSHEL</h1>
-      
+
       <FormDataRange
         startDateRange={startDateRange}
         endDateRange={endDateRange}

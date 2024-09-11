@@ -1,5 +1,5 @@
 import { useStore } from "./store/store";
-import numMulty100 from "./helpers/numMulty100";
+import numStrMulty100 from "./helpers/numStrMulty100";
 
 export default function FormAddPayment() {
   const [addPayment] = useStore((state) => [state.addPayment]);
@@ -8,7 +8,7 @@ export default function FormAddPayment() {
     e.preventDefault();
     addPayment({
       date: e.target["payment-date"].value,
-      amount: numMulty100(e.target["payment-amount"].value),
+      amount: numStrMulty100(e.target["payment-amount"].value),
       description: e.target["payment-description"].value,
       confirm: e.target["payment-confirm"].checked,
     });
@@ -16,7 +16,7 @@ export default function FormAddPayment() {
   };
 
   return (
-    <details>
+    <details name='details-level-1'>
       <summary>Добавить платеж</summary>
       <form action='submit' id='add-payment' onSubmit={handleSubmitPayment}>
         <div>

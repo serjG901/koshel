@@ -1,5 +1,5 @@
 import { useStore } from "./store/store";
-import numMulty100 from "./helpers/numMulty100";
+import numStrMulty100 from "./helpers/numStrMulty100";
 
 export default function FormAddTask() {
   const [addTask] = useStore((state) => [state.addTask]);
@@ -8,7 +8,7 @@ export default function FormAddTask() {
     e.preventDefault();
     addTask({
       date: e.target["task-date"].value,
-      amount: numMulty100(e.target["task-amount"].value),
+      amount: numStrMulty100(e.target["task-amount"].value),
       description: e.target["task-description"].value,
       confirm: e.target["task-confirm"].checked,
     });
@@ -16,7 +16,7 @@ export default function FormAddTask() {
   };
 
   return (
-    <details>
+    <details name='details-level-1'>
       <summary>Добавить затрату</summary>
       <form action='submit' id='add-task' onSubmit={handleSubmitTask}>
         <div>
